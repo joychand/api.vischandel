@@ -21,10 +21,12 @@ class VillagesController extends AppController
     public function index()
     {
         $this->request->allowMethod(['post']);
-        $villages = $this->Villages->find('list',[
-            'keyField'=>'village_code',
-            'valueField'=>'village_name'
-        ])->where(['sub_district_code'=>$this->request->getData('subdistrict_code')])
+        // $villages = $this->Villages->find('list',[
+        //     'keyField'=>'village_code',
+        //     'valueField'=>'village_name'
+        // ])->where(['sub_district_code'=>$this->request->getData('subdistrict_code')])
+        // ->order(['Villages.village_name'=>'ASC']);
+        $villages = $this->Villages->find()->where(['sub_district_code'=>$this->request->getData('subdistrict_code')])
         ->order(['Villages.village_name'=>'ASC']);
 
         $this->set(compact('villages'));
