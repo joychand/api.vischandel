@@ -36,13 +36,12 @@ class NregasController extends AppController
         if (!$vill_nrega) {
             throw new NotFoundException("No record exist");
         }
-        $totpopulation=$this->Populations->getpopulation(1,$village_code);
+       // $totpopulation=$this->Populations->getpopulation(1,$village_code);
         $this->set([
             'success' => true,
             'data' => [
-                'total_job_card'=>$vill_nrega->total_job_card  ,
-                'totpopulation'=>$totpopulation->total_population,
-                'total_household'=>$totpopulation->total_household
+                'total_job_card'=>$vill_nrega->total_job_card
+                
             ],
             '_serialize' => ['success', 'data']
         ]);

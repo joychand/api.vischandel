@@ -40,7 +40,7 @@ class NercormpController extends AppController
             'success' => true,
             'data' => [
                 'total_household'=>$nercormp_kpi->total_household ,
-                'total_population'=>$nercormp_kpi->total_household
+                'total_population'=>$nercormp_kpi->total_population
             ],
             '_serialize' => ['success', 'data']
         ]);

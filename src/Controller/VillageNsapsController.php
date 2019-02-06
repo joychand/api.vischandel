@@ -35,13 +35,12 @@ class VillageNsapsController extends AppController
         if (!$vill_nsap) {
             throw new NotFoundException("No record exist");
         }
-        $totpopulation=$this->Populations->getpopulation(1,$village_code);
+        //$totpopulation=$this->Populations->getpopulation(1,$village_code);
         $this->set([
             'success' => true,
             'data' => [
-                'total_widows_beneficiary'=>$vill_nsap->total_widows_beneficiary + $vill_nsap->total_handicap_beneficiary + $vill_nsap->total_ignoaps_beneficiary,
-                'totpopulation'=>$totpopulation->total_population,
-                'tothousehold'=>$totpopulation->total_household,
+                'total_widows_beneficiary'=>$vill_nsap->total_widows_beneficiary + $vill_nsap->total_handicap_beneficiary + $vill_nsap->total_ignoaps_beneficiary
+                
             ],
             '_serialize' => ['success', 'data']
         ]);

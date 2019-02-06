@@ -36,12 +36,12 @@ class FoodSecuritiesController extends AppController
         if (!$vill_cafnpd) {
             throw new NotFoundException("No record exist");
         }
-        $totpopulation=$this->Populations->getpopulation(1,$village_code);
+       // $totpopulation=$this->Populations->getpopulation(1,$village_code);
         $this->set([
             'success' => true,
             'data' => [
-                'total_phh_card'=>$vill_cafnpd->total_aay_card + $vill_cafnpd->total_phh_card ,
-                'totpopulation'=>$totpopulation->total_population
+                'total_phh_card'=>$vill_cafnpd->total_aay_card + $vill_cafnpd->total_phh_card 
+                //'totpopulation'=>$totpopulation->total_population
             ],
             '_serialize' => ['success', 'data']
         ]);

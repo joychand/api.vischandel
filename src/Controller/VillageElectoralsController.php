@@ -31,7 +31,7 @@ class VillageElectoralsController extends AppController
     public function kpi()
     {
         $this->request->allowMethod(['post']);
-        $this->loadModel('Populations');
+       // $this->loadModel('Populations');
         $village_code=$this->request->getData('village_code');
         $electorals_kpi=$this->VillageElectorals->getDetail($village_code);
         if (!$electorals_kpi) {
