@@ -70,11 +70,10 @@ class Application extends BaseApplication
     {
             $securityHeaders = new SecurityHeadersMiddleware();
             $securityHeaders
-                ->setCrossDomainPolicy()
-                ->setReferrerPolicy()
+               
                 ->setXFrameOptions('deny')
                 ->setXssProtection()
-                ->noOpen()
+               
                 ->noSniff();
         $middlewareQueue
             // Catch any exceptions in the lower layers,
@@ -92,7 +91,7 @@ class Application extends BaseApplication
             // you might want to disable this cache in case your routing is extremely simple
             ->add(new RoutingMiddleware($this, '_cake_routes_'))
             //added by N.Joychand on 06/02/2019
-            ->add($securityHeaders);
+            ->prepend($securityHeaders);
             // Add csrf middleware.
             // ->add(new CsrfProtectionMiddleware([
             //     'httpOnly' => true
